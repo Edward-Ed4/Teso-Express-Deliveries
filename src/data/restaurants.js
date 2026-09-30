@@ -17,6 +17,7 @@ export const restaurants = [
     tags: ["Grills", "Local", "Halal"],
     heroColor: "from-orange-600 to-amber-500",
     emoji: "🔥",
+    photo: "/muchomo.jpg",
     open: true,
     menu: [
       {
@@ -60,6 +61,7 @@ export const restaurants = [
     tags: ["Local", "Budget", "Vegetarian options"],
     heroColor: "from-green-700 to-teal-500",
     emoji: "🍲",
+    photo: "/posho.jpg",
     open: true,
     menu: [
       {
@@ -102,6 +104,7 @@ export const restaurants = [
     tags: ["Pizza", "Fast Food", "Popular"],
     heroColor: "from-red-600 to-rose-500",
     emoji: "🍕",
+    photo: "/ugandan-dishes.jpg",
     open: true,
     menu: [
       {
@@ -144,6 +147,7 @@ export const restaurants = [
     tags: ["Breakfast", "Quick", "Budget"],
     heroColor: "from-yellow-500 to-amber-400",
     emoji: "🌯",
+    photo: "/mandazi.jpg",
     open: true,
     menu: [
       {

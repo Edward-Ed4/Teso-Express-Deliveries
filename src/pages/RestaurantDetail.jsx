@@ -74,12 +74,14 @@ export default function RestaurantDetail() {
         <ArrowLeft size={16} /> All restaurants
       </button>
 
-      {/* Hero banner */}
-      <div className={`relative rounded-3xl overflow-hidden h-44 md:h-56 bg-gradient-to-r ${restaurant.heroColor} flex items-center justify-center mb-6`}>
-        <span className="text-9xl md:text-[10rem] select-none" role="img" aria-label={restaurant.cuisine}>
-          {restaurant.emoji}
-        </span>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+      {/* Hero banner — real food photo */}
+      <div className="relative rounded-3xl overflow-hidden h-44 md:h-56 mb-6">
+        <img
+          src={restaurant.photo}
+          alt={restaurant.name}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         <div className="absolute bottom-5 left-6 text-white">
           <h1 className="text-2xl md:text-3xl font-extrabold drop-shadow">{restaurant.name}</h1>
           <p className="text-sm text-white/80 mt-0.5">{restaurant.cuisine}</p>

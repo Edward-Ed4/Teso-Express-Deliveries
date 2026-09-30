@@ -71,9 +71,14 @@ export default function Restaurants() {
               to={`/restaurants/${r.id}`}
               className="card group hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
             >
-              {/* Banner */}
-              <div className={`h-36 bg-gradient-to-r ${r.heroColor} flex items-center justify-center relative`}>
-                <span className="text-7xl" role="img" aria-label={r.cuisine}>{r.emoji}</span>
+              {/* Photo banner */}
+              <div className="h-36 overflow-hidden relative">
+                <img
+                  src={r.photo}
+                  alt={r.cuisine}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 {r.open && (
                   <span className="absolute top-3 right-3 badge bg-brand-500 text-white">
                     <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />

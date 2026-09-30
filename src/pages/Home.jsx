@@ -39,13 +39,18 @@ export default function Home() {
   return (
     <div>
       {/* ══════════ HERO ══════════ */}
-      <section className="relative overflow-hidden bg-soroti-night bg-hero-pattern">
-        {/* decorative gradient orbs */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -right-10 w-80 h-80 bg-soroti-sky/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Soroti city aerial as a dark, blurred backdrop */}
+      <section className="relative overflow-hidden bg-soroti-night">
+        <img
+          src="/soroti-city.jpg"
+          alt="Aerial view of Soroti City, Uganda"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 select-none pointer-events-none"
+        />
+        {/* gradient overlay so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-soroti-night/95 via-soroti-night/80 to-soroti-night/50 pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-          {/* Text */}
+          {/* ── Left: copy ── */}
           <div>
             <div className="inline-flex items-center gap-2 badge bg-brand-500/15 text-brand-400 mb-5">
               <Leaf size={13} />
@@ -56,10 +61,11 @@ export default function Home() {
               <span className="text-brand-400">delivered fast</span><br />
               across Soroti.
             </h1>
+            {/* Updated copy — action-oriented, non-AI feel */}
             <p className="mt-5 text-slate-300 text-lg leading-relaxed max-w-md">
-              Order from your favourite Soroti restaurants and have it delivered
-              by a trained, uniformed TED rider on a clean electric Spiro
-              motorcycle — fresh, safe, and on time.
+              Get food from your favorite Soroti restaurants delivered right to
+              your desk or doorstep. Every TED order is carried in specialized
+              dust-proof hot boxes by certified, hygiene-trained riders.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/restaurants" className="btn-primary text-base px-6 py-3.5">
@@ -72,8 +78,8 @@ export default function Home() {
             {/* Quick stats */}
             <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-400">
               {[
-                { v: '4', l: 'Partner restaurants' },
-                { v: '5+', l: 'Trained riders' },
+                { v: '4',      l: 'Partner restaurants' },
+                { v: '5+',     l: 'Trained riders' },
                 { v: '<35 min', l: 'Avg delivery time' },
               ].map(({ v, l }) => (
                 <div key={l}>
@@ -84,18 +90,33 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero visual — electric bike illustration (pure CSS + emoji) */}
+          {/* ── Right: real Spiro fleet photo ── */}
           <div className="hidden md:flex items-center justify-center">
-            <div className="relative">
-              <div className="w-64 h-64 rounded-full bg-gradient-to-br from-brand-500/30 to-soroti-sky/20 flex items-center justify-center border border-brand-500/20 shadow-2xl">
-                <span className="text-9xl select-none" role="img" aria-label="Electric delivery bike">🛵</span>
+            <div className="relative w-full max-w-md">
+              {/* Main fleet photo */}
+              <div className="rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                <img
+                  src="/spiro-fleet.png"
+                  alt="Spiro electric delivery bikes lined up in Uganda"
+                  className="w-full h-72 object-cover object-center"
+                />
               </div>
-              {/* floating badges */}
-              <div className="absolute -top-4 -right-6 bg-white rounded-2xl shadow-lg px-4 py-2.5 flex items-center gap-2 text-sm font-semibold text-slate-800 border border-slate-100">
-                <span className="text-lg">⚡</span> Electric bike
+
+              {/* Floating badge — close-up Spiro bike tech */}
+              <div className="absolute -bottom-5 -left-5 w-28 h-28 rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                <img
+                  src="/spiro-bike.jpg"
+                  alt="Spiro Commando electric bike close-up"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="absolute -bottom-4 -left-6 bg-white rounded-2xl shadow-lg px-4 py-2.5 flex items-center gap-2 text-sm font-semibold text-slate-800 border border-slate-100">
-                <ShieldCheck size={16} className="text-brand-500" /> Trained rider
+
+              {/* Text badge top-right */}
+              <div className="absolute -top-3 -right-3 bg-white rounded-2xl shadow-lg px-3 py-2 flex items-center gap-2 text-sm font-semibold text-slate-800 border border-slate-100">
+                <span className="text-base">⚡</span> Zero emissions
+              </div>
+              <div className="absolute bottom-16 -right-4 bg-brand-500 text-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 text-xs font-semibold">
+                <ShieldCheck size={14} /> Trained rider
               </div>
             </div>
           </div>
@@ -127,7 +148,7 @@ export default function Home() {
             icon={Package}
             color="bg-soroti-sky"
             title="Sealed insulated bags"
-            body="Orders travel in tamper-evident, temperature-controlled delivery bags — no spills, no contamination."
+            body="Orders travel in tamper-evident, dust-proof hot boxes — no spills, no contamination, still hot on arrival."
           />
           <TrustCard
             icon={ShieldCheck}
@@ -160,9 +181,15 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {featured.map((r) => (
               <Link key={r.id} to={`/restaurants/${r.id}`} className="card group hover:shadow-md transition-shadow">
-                {/* Colour banner */}
-                <div className={`h-28 bg-gradient-to-r ${r.heroColor} flex items-center justify-center`}>
-                  <span className="text-6xl" role="img" aria-label={r.cuisine}>{r.emoji}</span>
+                {/* Real food photo banner */}
+                <div className="h-40 overflow-hidden relative">
+                  <img
+                    src={r.photo}
+                    alt={r.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* subtle dark overlay at bottom for text legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-2">
@@ -196,37 +223,60 @@ export default function Home() {
             </div>
             <h2 className="section-title mb-8">How TED works</h2>
             <div className="flex flex-col gap-7">
-              <Step num={1} title="Browse & order" body="Pick a partner restaurant, choose your items, and confirm your delivery address — right here in the app." />
-              <Step num={2} title="Restaurant prepares" body="Your order goes straight to the kitchen. The restaurant contacts TED dispatch to request a rider." />
-              <Step num={3} title="Rider picks up" body="A uniformed TED rider collects your sealed order in an insulated delivery bag and heads your way." />
-              <Step num={4} title="Track & receive" body="Watch live stage updates as your rider approaches. No guessing — you always know where your food is." />
+              <Step
+                num={1}
+                title="Browse & order"
+                body="Pick your favorite meal from our featured Soroti restaurant menus — right here, no phone calls needed."
+              />
+              <Step
+                num={2}
+                title="Eco-friendly dispatch"
+                body="A trained TED rider collects your food using a quiet, zero-emission Spiro electric bike. No fumes, no noise."
+              />
+              <Step
+                num={3}
+                title="Sealed delivery"
+                body="Enjoy your lunch fresh and hot, safely sealed in a dust-proof insulated box against Soroti's roads."
+              />
+              <Step
+                num={4}
+                title="Track & receive"
+                body="Live stage updates let you know exactly where your order is — from kitchen to doorstep."
+              />
             </div>
           </div>
 
-          {/* Explainer card — the Soroti context */}
-          <div className="bg-gradient-to-br from-soroti-night to-slate-800 rounded-3xl p-8 text-white shadow-xl">
-            <div className="text-4xl mb-4">🏙️</div>
-            <h3 className="text-xl font-bold mb-3">Why delivery has been hard in Soroti — until now</h3>
-            <ul className="text-sm text-slate-300 space-y-3 leading-relaxed">
-              <li className="flex gap-2">
-                <span className="text-amber-400 mt-0.5 flex-shrink-0">▸</span>
-                Most Soroti restaurants have no delivery infrastructure — customers must eat in or collect.
-              </li>
-              <li className="flex gap-2">
-                <span className="text-amber-400 mt-0.5 flex-shrink-0">▸</span>
-                Informal boda-boda delivery carries real risk: spills, contamination, and zero accountability.
-              </li>
-              <li className="flex gap-2">
-                <span className="text-amber-400 mt-0.5 flex-shrink-0">▸</span>
-                Restaurants fear their reputation suffers when a third party delivers food poorly.
-              </li>
-              <li className="flex gap-2">
-                <span className="text-brand-400 mt-0.5 flex-shrink-0">✓</span>
-                <span className="text-brand-200 font-medium">
-                  Teso Express Deliveries (TED) solves this with trained riders, insulated bags, and a clear compensation policy — giving restaurants a safe way to expand to delivery for the first time.
-                </span>
-              </li>
-            </ul>
+          {/* Explainer card — Soroti context with city photo */}
+          <div className="relative rounded-3xl overflow-hidden shadow-xl">
+            <img
+              src="/soroti-city.jpg"
+              alt="Soroti City aerial view showing Soroti Rock"
+              className="w-full h-80 object-cover object-top"
+            />
+            {/* dark overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-soroti-night via-soroti-night/80 to-transparent" />
+            {/* text on top of photo */}
+            <div className="absolute bottom-0 left-0 right-0 p-7">
+              <h3 className="text-lg font-bold text-white mb-3">
+                Why delivery has been hard in Soroti — until now
+              </h3>
+              <ul className="text-sm text-slate-300 space-y-2 leading-relaxed">
+                <li className="flex gap-2">
+                  <span className="text-amber-400 flex-shrink-0 mt-0.5">▸</span>
+                  Most restaurants have no delivery — customers eat in or collect.
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-amber-400 flex-shrink-0 mt-0.5">▸</span>
+                  Informal boda-boda delivery: spills, contamination, zero accountability.
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-brand-400 flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-brand-200 font-medium">
+                    TED fixes this with trained riders, sealed hot boxes, and a compensation policy.
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
