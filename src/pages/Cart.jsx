@@ -67,7 +67,7 @@ export default function Cart() {
         <ArrowLeft size={16} /> Back to menu
       </button>
 
-      <h1 className="section-title mb-8">Your cart</h1>
+      <h1 className="font-display section-title mb-8">Your cart</h1>
 
       <div className="grid lg:grid-cols-5 gap-8">
 
@@ -196,16 +196,16 @@ export default function Cart() {
               </button>
             </div>
 
-            {/* Trust card */}
-            <div className="card p-4 bg-brand-50 border-brand-200">
+            {/* Trust card — left-accent stripe, no colored box */}
+            <div className="trust-banner">
               <div className="flex items-start gap-3">
-                <BadgeCheck size={20} className="text-brand-500 flex-shrink-0 mt-0.5" />
+                <BadgeCheck size={18} className="text-brand-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-brand-800 text-sm">TED guarantee</p>
-                  <ul className="mt-2 space-y-1 text-xs text-brand-700/80 leading-relaxed">
-                    <li className="flex gap-1.5"><ShieldCheck size={11} className="mt-0.5 flex-shrink-0" /> Trained, uniformed rider</li>
-                    <li className="flex gap-1.5"><ShieldCheck size={11} className="mt-0.5 flex-shrink-0" /> Sealed insulated delivery bag</li>
-                    <li className="flex gap-1.5"><ShieldCheck size={11} className="mt-0.5 flex-shrink-0" /> Compensation for damaged orders</li>
+                  <p className="font-semibold text-slate-800 text-sm">TED guarantee</p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate-500 leading-relaxed">
+                    <li className="flex gap-1.5"><ShieldCheck size={11} className="mt-0.5 flex-shrink-0 text-brand-500" /> Trained, uniformed rider</li>
+                    <li className="flex gap-1.5"><ShieldCheck size={11} className="mt-0.5 flex-shrink-0 text-brand-500" /> Sealed insulated delivery bag</li>
+                    <li className="flex gap-1.5"><ShieldCheck size={11} className="mt-0.5 flex-shrink-0 text-brand-500" /> Compensation for damaged orders</li>
                   </ul>
                 </div>
               </div>

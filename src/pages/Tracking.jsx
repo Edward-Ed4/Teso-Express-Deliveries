@@ -43,8 +43,8 @@ export default function Tracking() {
   if (!order) {
     return (
       <div className="max-w-xl mx-auto px-4 py-28 text-center">
-        <span className="text-6xl mb-5 block">🛵</span>
-        <h2 className="text-xl font-bold text-slate-700 mb-2">No active order</h2>
+        <Bike size={52} className="mx-auto text-slate-300 mb-5" />
+        <h2 className="font-display text-xl font-bold text-slate-700 mb-2">No active order</h2>
         <p className="text-slate-500 text-sm mb-7">
           Place an order first and you'll be able to track it here in real time.
         </p>
@@ -66,12 +66,12 @@ export default function Tracking() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <p className="text-xs text-slate-400 uppercase tracking-wide mb-1">Order #{order.id}</p>
-          <h1 className="section-title">Tracking your order</h1>
+          <h1 className="font-display section-title">Tracking your order</h1>
         </div>
         {!isDelivered && (
-          <div className="flex items-center gap-2 px-4 py-2.5 bg-brand-50 border border-brand-200 rounded-xl text-sm">
-            <Clock size={16} className="text-brand-500" />
-            <span className="text-brand-700 font-semibold">ETA ~{etaMinutes} min</span>
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 rounded-xl text-sm border border-slate-200">
+            <Clock size={15} className="text-brand-500" />
+            <span className="text-slate-700 font-semibold">ETA ~{etaMinutes} min</span>
           </div>
         )}
       </div>
@@ -179,11 +179,13 @@ export default function Tracking() {
             <p className="text-xs text-slate-400">Certified food handler · Electric bike</p>
           </div>
         </div>
-        <div className="grid sm:grid-cols-3 gap-3">
+        {/* 2-col grid — breaks the 3-icon-boxes pattern */}
+        <div className="grid grid-cols-2 gap-3">
           {[
-            { icon: BadgeCheck, label: 'Certified', body: 'Completed TED food-handling & hygiene training' },
+            { icon: BadgeCheck, label: 'Certified',   body: 'Completed TED food-handling & hygiene training' },
             { icon: ShieldCheck, label: 'Accountable', body: 'Wears uniform & ID badge — you know who has your food' },
-            { icon: Package,   label: 'Sealed bag', body: 'Insulated, tamper-evident delivery bag for every order' },
+            { icon: Package,    label: 'Sealed box',  body: 'Dust-proof insulated delivery box for every order' },
+            { icon: Zap,        label: 'Electric bike', body: 'Zero-emission Spiro motorcycle — quiet and clean' },
           ].map(({ icon: Icon, label, body }) => (
             <div key={label} className="bg-white/5 rounded-xl p-3 border border-white/10">
               <div className="flex items-center gap-2 mb-1">
@@ -199,8 +201,8 @@ export default function Tracking() {
       {/* ── Post-delivery CTA ── */}
       {isDelivered ? (
         <div className="text-center py-6">
-          <p className="text-5xl mb-3">🎉</p>
-          <h2 className="text-xl font-bold text-slate-900 mb-1">Your order has been delivered!</h2>
+          <CheckCircle2 size={52} className="mx-auto text-brand-500 mb-4" />
+          <h2 className="font-display text-xl font-bold text-slate-900 mb-1">Order delivered.</h2>
           <p className="text-slate-500 text-sm mb-6">Enjoy your meal. Thank you for using Teso Express Deliveries.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <button

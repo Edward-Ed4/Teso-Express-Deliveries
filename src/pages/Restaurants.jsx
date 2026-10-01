@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Clock, Bike, Search, ChevronRight } from 'lucide-react';
+import { Star, Clock, Bike, Search, ChevronRight, ShieldCheck } from 'lucide-react';
 import { restaurants } from '../data/restaurants';
 
 const ALL_TAGS = ['All', ...Array.from(new Set(restaurants.flatMap((r) => r.tags)))];
@@ -22,7 +22,7 @@ export default function Restaurants() {
 
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="section-title">Partner Restaurants</h1>
+        <h1 className="font-display section-title">Partner Restaurants</h1>
         <p className="text-slate-500 mt-1 text-sm">
           {restaurants.length} restaurants delivering across Soroti via TED
         </p>
@@ -60,7 +60,7 @@ export default function Restaurants() {
       {/* Restaurant grid */}
       {filtered.length === 0 ? (
         <div className="py-24 text-center text-slate-400">
-          <p className="text-5xl mb-4">🔍</p>
+          <Search size={40} className="mx-auto mb-4 text-slate-300" />
           <p className="font-semibold">No restaurants match your search</p>
         </div>
       ) : (
@@ -129,11 +129,11 @@ export default function Restaurants() {
       )}
 
       {/* Bottom trust note */}
-      <div className="mt-12 bg-brand-50 border border-brand-200 rounded-2xl p-5 flex gap-4 items-start">
-        <span className="text-3xl flex-shrink-0" aria-hidden>🔒</span>
+      <div className="mt-12 trust-banner flex gap-4 items-start">
+        <ShieldCheck size={18} className="text-brand-500 flex-shrink-0 mt-0.5" />
         <div>
-          <p className="font-semibold text-brand-800 text-sm">All partner restaurants are TED verified</p>
-          <p className="text-xs text-brand-700/80 mt-0.5 leading-relaxed">
+          <p className="font-semibold text-slate-800 text-sm">All partner restaurants are TED verified</p>
+          <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
             Every restaurant on Teso Express Deliveries has agreed to our food quality standards. Our riders use
             sealed insulated bags and are trained in safe food handling — so your meal arrives exactly
             as it left the kitchen.

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -33,10 +33,14 @@
     @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold;
   }
   .section-title {
-    @apply text-2xl md:text-3xl font-bold text-slate-900;
+    @apply text-2xl md:text-3xl font-bold text-slate-900 font-display;
   }
   .input-field {
     @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all;
+  }
+  /* Trust/info banners — left accent stripe instead of colored border box */
+  .trust-banner {
+    @apply bg-slate-50 border-l-4 border-brand-500 rounded-r-xl p-4;
   }
 }
 

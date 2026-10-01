@@ -75,7 +75,7 @@ export default function RestaurantDetail() {
       </button>
 
       {/* Hero banner — real food photo */}
-      <div className="relative rounded-3xl overflow-hidden h-44 md:h-56 mb-6">
+      <div className="relative rounded-2xl overflow-hidden h-44 md:h-56 mb-6">
         <img
           src={restaurant.photo}
           alt={restaurant.name}
@@ -102,14 +102,14 @@ export default function RestaurantDetail() {
       <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-2xl">{restaurant.description}</p>
 
       {/* ── Trust signal banner ── */}
-      <div className="bg-brand-50 border border-brand-200 rounded-2xl p-4 flex gap-3 items-start mb-8">
-        <BadgeCheck size={20} className="text-brand-500 flex-shrink-0 mt-0.5" />
+      <div className="trust-banner flex gap-3 items-start mb-8">
+        <BadgeCheck size={18} className="text-brand-500 flex-shrink-0 mt-0.5" />
         <div>
-          <p className="font-semibold text-brand-800 text-sm">TED quality guarantee</p>
-          <p className="text-xs text-brand-700/80 mt-0.5 leading-relaxed">
+          <p className="font-semibold text-slate-800 text-sm">TED quality guarantee</p>
+          <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
             Your order will be collected by a trained, uniformed TED rider in a sealed insulated bag.
-            If anything arrives damaged or incorrect, Teso Express Deliveries' compensation policy applies — protecting
-            you and this restaurant.
+            If anything arrives damaged or incorrect, Teso Express Deliveries' compensation policy applies —
+            protecting you and this restaurant.
           </p>
         </div>
       </div>
