@@ -48,7 +48,7 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
           <div>
             {/* Single badge — kept only here where it earns its place */}
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-brand-400 mb-5 border border-brand-500/30 rounded-full px-3 py-1">
+            <div className="eyebrow mb-5 text-brand-700">
               <Leaf size={12} />
               Soroti's first electric food delivery
             </div>
@@ -170,7 +170,7 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {featured.map((r) => (
-              <Link key={r.id} to={`/restaurants/${r.id}`} className="card group hover:shadow-md transition-shadow">
+              <Link key={r.id} to={`/restaurants/${r.id}`} className="card group hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(15,23,42,0.10)] transition-all duration-200">
                 <div className="h-40 overflow-hidden relative">
                   <img
                     src={r.photo}

@@ -8,39 +8,66 @@
   * {
     box-sizing: border-box;
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-slate-50 text-slate-800 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at top, rgba(34, 197, 94, 0.12), transparent 25%),
+      linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(34, 197, 94, 0.2);
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
   }
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-slate-50 text-brand-700 font-semibold rounded-xl border-2 border-brand-500 transition-all duration-200 active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 bg-white/90 hover:bg-white text-brand-700 font-semibold rounded-xl border border-brand-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95;
   }
+
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-slate-600 hover:text-brand-600 hover:bg-brand-50 font-medium rounded-lg transition-all duration-200;
   }
+
   .card {
-    @apply bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden;
+    @apply bg-white rounded-2xl shadow-[0_12px_30px_rgba(15,23,42,0.05)] border border-slate-100 overflow-hidden transition-all duration-200;
   }
+
   .badge {
     @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold;
   }
+
   .section-title {
-    @apply text-2xl md:text-3xl font-bold text-slate-900 font-display;
+    @apply text-2xl md:text-3xl font-bold text-slate-900 font-display tracking-[-0.03em];
   }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50/70 px-3 py-1.5 text-xs font-semibold tracking-[0.12em] uppercase text-brand-700 shadow-sm;
+  }
+
   .input-field {
-    @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all;
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-300 transition-all shadow-sm;
   }
-  /* Trust/info banners — left accent stripe instead of colored border box */
+
   .trust-banner {
-    @apply bg-slate-50 border-l-4 border-brand-500 rounded-r-xl p-4;
+    @apply bg-slate-50/80 border-l-4 border-brand-500 rounded-r-2xl p-4 shadow-sm;
+  }
+
+  .glass-panel {
+    @apply border border-white/10 bg-white/5 backdrop-blur-lg;
   }
 }
 

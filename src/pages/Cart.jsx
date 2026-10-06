@@ -67,14 +67,14 @@ export default function Cart() {
         <ArrowLeft size={16} /> Back to menu
       </button>
 
-      <h1 className="font-display section-title mb-8">Your cart</h1>
+      <h1 className="font-display section-title mb-8 tracking-[-0.04em]">Your cart</h1>
 
       <div className="grid lg:grid-cols-5 gap-8">
 
         {/* ── Cart items ── */}
         <div className="lg:col-span-3 space-y-4">
           <div className="card p-5">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
               <p className="font-bold text-slate-800">{cart.restaurantName}</p>
               <button
                 onClick={() => { dispatch({ type: 'CLEAR_CART' }); navigate('/restaurants'); }}
@@ -86,7 +86,7 @@ export default function Cart() {
 
             <ul className="divide-y divide-slate-100">
               {cart.items.map((ci) => (
-                <li key={ci.item.id} className="py-4 flex items-start gap-4">
+                <li key={ci.item.id} className="py-4 flex items-start gap-4 rounded-xl px-2 -mx-2 hover:bg-slate-50 transition-colors">
                   <div className="flex-1">
                     <p className="font-semibold text-slate-900 text-sm">{ci.item.name}</p>
                     <p className="text-xs text-slate-500 mt-0.5">

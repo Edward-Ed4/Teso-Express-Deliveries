@@ -37,7 +37,7 @@ export default function Restaurants() {
             placeholder="Search restaurants or cuisine…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="input-field pl-10"
+            className="input-field pl-10 shadow-sm"
           />
         </div>
         <div className="flex gap-2 flex-wrap">
@@ -45,10 +45,10 @@ export default function Restaurants() {
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
-              className={`px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
+              className={`px-3 py-2 rounded-xl text-sm font-medium border transition-all duration-200 ${
                 activeTag === tag
-                  ? 'bg-brand-500 border-brand-500 text-white'
-                  : 'bg-white border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600'
+                  ? 'bg-brand-500 border-brand-500 text-white shadow-md shadow-brand-200'
+                  : 'bg-white border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600 hover:bg-brand-50'
               }`}
             >
               {tag}
@@ -69,7 +69,7 @@ export default function Restaurants() {
             <Link
               key={r.id}
               to={`/restaurants/${r.id}`}
-              className="card group hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+              className="card group hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(15,23,42,0.10)] transition-all duration-200"
             >
               {/* Photo banner */}
               <div className="h-36 overflow-hidden relative">

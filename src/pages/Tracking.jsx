@@ -65,19 +65,19 @@ export default function Tracking() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <p className="text-xs text-slate-400 uppercase tracking-wide mb-1">Order #{order.id}</p>
-          <h1 className="font-display section-title">Tracking your order</h1>
+          <p className="text-xs text-slate-400 uppercase tracking-[0.18em] mb-1">Order #{order.id}</p>
+          <h1 className="font-display section-title tracking-[-0.04em]">Tracking your order</h1>
         </div>
         {!isDelivered && (
-          <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 rounded-xl text-sm border border-slate-200">
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-brand-50 rounded-xl text-sm border border-brand-100 shadow-sm">
             <Clock size={15} className="text-brand-500" />
-            <span className="text-slate-700 font-semibold">ETA ~{etaMinutes} min</span>
+            <span className="text-brand-700 font-semibold">ETA ~{etaMinutes} min</span>
           </div>
         )}
       </div>
 
       {/* ── Stage tracker ── */}
-      <div className="card p-6 mb-6">
+      <div className="card p-6 mb-6 shadow-[0_20px_40px_rgba(15,23,42,0.06)]">
         <div className="relative">
           {/* Vertical line */}
           <div className="absolute left-[19px] top-5 bottom-5 w-0.5 bg-slate-200" />
